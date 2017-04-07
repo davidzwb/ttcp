@@ -13,7 +13,9 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    tcpstream.writeALL(std::string("Hello World!"));
+    tcpstream.writeALL("Hello World!", strlen("Hello World!"));
+
+    //tcpstream.close();
 
     return 0;
 }

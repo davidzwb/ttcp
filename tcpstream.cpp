@@ -40,14 +40,14 @@ bool TcpStream::accept(TcpStream &tcpstream)
     return true;
 }
 
-bool TcpStream::writeALL(const std::string &buf)
+bool TcpStream::writeALL(const char *buf, int len)
 {
     int num = 0;
-    int left = buf.size();
+    int left = len;
 
     while (left > 0)
     {
-        num = ::write(sockfd_, buf.c_str(), buf.size());
+        num = ::write(sockfd_, buf, len);
         if (num != -1)
         {
             left -= num;
@@ -66,10 +66,10 @@ bool TcpStream::writeALL(const std::string &buf)
     return true;
 }
 
-int TcpStream::writeSome(const std::string &buf)
+int TcpStream::writeSome(const char *buf, int len)
 {
     int num = 0;
-    num = ::write(sockfd_, buf.c_str(), buf.size());
+    num = ::write(sockfd_, buf, len);
 
     return num;
 }

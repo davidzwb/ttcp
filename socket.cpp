@@ -57,3 +57,8 @@ int Socket::accept()
     return connfd;
 }
 
+int Socket::close()
+{
+    return ::close(this->sockfd_);
+}
+

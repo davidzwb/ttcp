@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
         ::memset(readline, 0, 128);
 
         TcpStream connstream = TcpStream();
+
         if (!tcpstream.accept(connstream))
             return 0;
 
@@ -30,7 +31,11 @@ int main(int argc, char *argv[])
         readline[num] = '\0';
 
         std::cout << readline << std::endl;
+
+        //connstream.close();
     }
+
+    //tcpstream.close();
 
     return 0;
 }
